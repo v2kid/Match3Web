@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chill Heaven Story - The Ultimate Match3 Experience</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+            }
+            .floating {
+            animation: float 3s ease-in-out infinite;
+            }
+            .gem-red { background: linear-gradient(135deg, #ff5e62, #ff2400); }
+            .gem-blue { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+            .gem-green { background: linear-gradient(135deg, #a1ffce, #faffd1); }
+            .gem-purple { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+            .gem-yellow { background: linear-gradient(135deg, #f6d365, #fda085); }
+            .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .leaderboard-entry:nth-child(1) { background-color: rgba(255, 215, 0, 0.1); }
+            .leaderboard-entry:nth-child(2) { background-color: rgba(192, 192, 192, 0.1); }
+            .leaderboard-entry:nth-child(3) { background-color: rgba(205, 127, 50, 0.1); }
+        </style>
+    </head>
+    <body class="bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 min-h-screen text-white">
+        <!-- Navigation -->
+        <nav class="bg-black bg-opacity-30 backdrop-blur-md sticky top-0 z-50">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full gem-purple flex items-center justify-center">
+                        <i class="fas fa-gem text-white"></i>
+                    </div>
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-yellow-300">
+                        Chill Heaven Story
+                    </span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="hover:text-pink-300 transition">Home</a>
+                    <a href="#features" class="hover:text-pink-300 transition">Features</a>
+                    <a href="#leaderboard" class="hover:text-pink-300 transition">Leaderboard</a>
+                    <a href="#community" class="hover:text-pink-300 transition">Community</a>
+                    <a href="#download" class="hover:text-pink-300 transition">Download</a>
+                </div>
+                <button class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="py-20 px-4">
+            <div class="container mx-auto flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Match, Pop &
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-pink-400">
+                            Blast!
+                        </span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-300">
+                        Join millions of players in the most addictive Match3 puzzle adventure! Swap, match and blast
+                        colorful gems in hundreds of challenging levels.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="https://play.google.com/apps/internaltest/4701569967536227903"
+                           class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition transform hover:scale-105">
+                            <i class="fas fa-download mr-2"></i>
+                            Play Now
+                        </a>
+                        <button class="bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-bold py-3 px-6 rounded-full border border-white border-opacity-30 transition transform hover:scale-105">
+                            <i class="fas fa-play-circle mr-2"></i>
+                            Watch Trailer
+                        </button>
+                    </div>
+                    <div class="mt-8 flex items-center space-x-4">
+                        <div class="flex -space-x-2">
+                            <img src="https://randomuser.me/api/portraits/women/1.jpg"
+                                 class="w-10 h-10 rounded-full border-2 border-white">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                 class="w-10 h-10 rounded-full border-2 border-white">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg"
+                                 class="w-10 h-10 rounded-full border-2 border-white">
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-300">Join <span class="font-bold text-yellow-300">5M+</span> players
+                                worldwide
+                            </p>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative max-w-md mx-auto">
+                        <div class="absolute -top-10 -left-10 w-24 h-24 rounded-full gem-red opacity-70 floating"
+                             style="animation-delay: 0.2s;"></div>
+                        <div class="absolute -bottom-10 -right-10 w-20 h-20 rounded-full gem-blue opacity-70 floating"
+                             style="animation-delay: 0.5s;"></div>
+                        <div class="absolute top-1/4 -right-16 w-16 h-16 rounded-full gem-yellow opacity-70 floating"
+                             style="animation-delay: 0.8s;"></div>
+                        <div class="relative bg-black bg-opacity-30 backdrop-blur-md rounded-2xl overflow-hidden border border-white border-opacity-20 shadow-2xl">
+                            <img src="https://via.placeholder.com/500x800/4F46E5/FFFFFF?text=Game+Screenshot"
+                                 alt="Chill Heaven Story Game" class="w-full">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <p class="font-bold">Level 147</p>
+                                        <p class="text-sm text-gray-300">3 moves left</p>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <div class="w-8 h-8 rounded-full gem-red flex items-center justify-center">
+                                            <span class="text-xs font-bold">5x</span>
+                                        </div>
+                                        <div class="w-8 h-8 rounded-full gem-blue flex items-center justify-center">
+                                            <span class="text-xs font-bold">3x</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 px-4 bg-black bg-opacity-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Why Players Love
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-yellow-300">Chill
+                            Heaven Story
+                        </span>
+                    </h2>
+                    <p class="max-w-2xl mx-auto text-gray-300">Discover the features that make our game stand out from
+                        the crowd
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-gradient-to-br from-purple-900 to-blue-900 rounded-2xl p-6 game-card transition duration-300">
+                        <div class="w-16 h-16 rounded-full gem-green flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-infinity text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-center">Endless Fun</h3>
+                        <p class="text-gray-300 text-center">Over 500+ levels with regular updates. New challenges every
+                            week to keep you engaged!
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-gradient-to-br from-pink-900 to-purple-900 rounded-2xl p-6 game-card transition duration-300">
+                        <div class="w-16 h-16 rounded-full gem-yellow flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-bolt text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-center">Power-ups</h3>
+                        <p class="text-gray-300 text-center">Unlock explosive power-ups and special gems to blast your
+                            way through tough levels.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-2xl p-6 game-card transition duration-300">
+                        <div class="w-16 h-16 rounded-full gem-purple flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-trophy text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-center">Competitive</h3>
+                        <p class="text-gray-300 text-center">Compete with friends and players worldwide in weekly
+                            tournaments and events.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-gradient-to-br from-indigo-900 to-blue-900 rounded-2xl p-6 game-card transition duration-300">
+                        <div class="w-16 h-16 rounded-full gem-red flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-paint-brush text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-center">Stunning Visuals</h3>
+                        <p class="text-gray-300 text-center">Beautifully designed gems and animations that make every
+                            match satisfying.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="bg-gradient-to-br from-purple-900 to-pink-900 rounded-2xl p-6 game-card transition duration-300">
+                        <div class="w-16 h-16 rounded-full gem-blue flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-users text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-center">Social Features</h3>
+                        <p class="text-gray-300 text-center">Connect with friends, send lives, and compare progress on
+                            the leaderboards.
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="bg-gradient-to-br from-blue-900 to-purple-900 rounded-2xl p-6 game-card transition duration-300">
+                        <div class="w-16 h-16 rounded-full gem-yellow flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-headphones text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-center">Relaxing Music</h3>
+                        <p class="text-gray-300 text-center">Custom soundtrack designed to help you focus and relax
+                            while playing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard Section -->
+        <section id="leaderboard" class="py-20 px-4">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Global
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-pink-400">
+                            Leaderboard
+                        </span>
+                    </h2>
+                    <p class="max-w-2xl mx-auto text-gray-300">Top players this week - can you beat them?</p>
+                </div>
+
+                <div class="max-w-3xl mx-auto bg-black bg-opacity-30 backdrop-blur-md rounded-2xl overflow-hidden border border-white border-opacity-20 shadow-xl">
+                    <div class="grid grid-cols-12 bg-white bg-opacity-10 py-4 px-6 font-bold">
+                        <div class="col-span-1">#</div>
+                        <div class="col-span-6">Player</div>
+                        <div class="col-span-3">Level</div>
+                        <div class="col-span-2 text-right">Score</div>
+                    </div>
+
+                    <div class="divide-y divide-white divide-opacity-10">
+                        <!-- Player 1 -->
+                        <div class="grid grid-cols-12 py-4 px-6 items-center leaderboard-entry">
+                            <div class="col-span-1">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 flex items-center justify-center">
+                                    <span class="font-bold">1</span>
+                                </div>
+                            </div>
+                            <div class="col-span-6 flex items-center">
+                                <img src="https://randomuser.me/api/portraits/women/12.jpg"
+                                     class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-bold">CrystalQueen</p>
+                                    <p class="text-xs text-gray-400">United States</p>
+                                </div>
+                            </div>
+                            <div class="col-span-3">
+                                <div class="flex items-center">
+                                    <span class="mr-2">487</span>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-right font-bold text-yellow-300">1,245,780</div>
+                        </div>
+
+                        <!-- Player 2 -->
+                        <div class="grid grid-cols-12 py-4 px-6 items-center leaderboard-entry">
+                            <div class="col-span-1">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-gray-400 to-gray-600 flex items-center justify-center">
+                                    <span class="font-bold">2</span>
+                                </div>
+                            </div>
+                            <div class="col-span-6 flex items-center">
+                                <img src="https://randomuser.me/api/portraits/men/33.jpg"
+                                     class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-bold">GemMaster</p>
+                                    <p class="text-xs text-gray-400">Germany</p>
+                                </div>
+                            </div>
+                            <div class="col-span-3">
+                                <div class="flex items-center">
+                                    <span class="mr-2">476</span>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-gray-400 h-2 rounded-full" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-right font-bold text-gray-300">1,120,450</div>
+                        </div>
+
+                        <!-- Player 3 -->
+                        <div class="grid grid-cols-12 py-4 px-6 items-center leaderboard-entry">
+                            <div class="col-span-1">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-amber-700 to-amber-900 flex items-center justify-center">
+                                    <span class="font-bold">3</span>
+                                </div>
+                            </div>
+                            <div class="col-span-6 flex items-center">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg"
+                                     class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-bold">BlastPro</p>
+                                    <p class="text-xs text-gray-400">Japan</p>
+                                </div>
+                            </div>
+                            <div class="col-span-3">
+                                <div class="flex items-center">
+                                    <span class="mr-2">469</span>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-amber-600 h-2 rounded-full" style="width: 82%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-right font-bold text-amber-300">987,620</div>
+                        </div>
+
+                        <!-- More players -->
+                        <div class="grid grid-cols-12 py-4 px-6 items-center hover:bg-white hover:bg-opacity-10 transition">
+                            <div class="col-span-1">
+                                <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center">
+                                    <span class="font-bold">4</span>
+                                </div>
+                            </div>
+                            <div class="col-span-6 flex items-center">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg"
+                                     class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-bold">MatchKing</p>
+                                    <p class="text-xs text-gray-400">Brazil</p>
+                                </div>
+                            </div>
+                            <div class="col-span-3">
+                                <div class="flex items-center">
+                                    <span class="mr-2">458</span>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-400 h-2 rounded-full" style="width: 78%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-right font-bold">876,340</div>
+                        </div>
+
+                        <div class="grid grid-cols-12 py-4 px-6 items-center hover:bg-white hover:bg-opacity-10 transition">
+                            <div class="col-span-1">
+                                <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center">
+                                    <span class="font-bold">5</span>
+                                </div>
+                            </div>
+                            <div class="col-span-6 flex items-center">
+                                <img src="https://randomuser.me/api/portraits/women/28.jpg"
+                                     class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-bold">PuzzleStar</p>
+                                    <p class="text-xs text-gray-400">France</p>
+                                </div>
+                            </div>
+                            <div class="col-span-3">
+                                <div class="flex items-center">
+                                    <span class="mr-2">452</span>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-purple-400 h-2 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-right font-bold">812,560</div>
+                        </div>
+                    </div>
+
+                    <div class="text-center py-4 bg-white bg-opacity-5">
+                        <button class="text-pink-300 font-bold hover:text-pink-400 transition">
+                            <i class="fas fa-chevron-down mr-2"></i>
+                            View Full Leaderboard
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="py-20 px-4 bg-black bg-opacity-20">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Join Our
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-400">
+                            Community
+                        </span>
+                    </h2>
+                    <p class="max-w-2xl mx-auto text-gray-300">Connect with other players, share strategies, and get the
+                        latest updates
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Discord -->
+                    <div class="bg-gradient-to-br from-indigo-900 to-purple-900 rounded-2xl p-8 text-center game-card transition duration-300">
+                        <div class="w-20 h-20 rounded-full bg-indigo-600 flex items-center justify-center mb-6 mx-auto">
+                            <i class="fab fa-discord text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Discord</h3>
+                        <p class="text-gray-300 mb-6">Join our active Discord community with over 50,000 members. Get
+                            tips, participate in events, and chat with the developers!
+                        </p>
+                        <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full transition">
+                            Join Server
+                        </button>
+                    </div>
+
+                    <!-- Facebook -->
+                    <div class="bg-gradient-to-br from-blue-800 to-blue-600 rounded-2xl p-8 text-center game-card transition duration-300">
+                        <div class="w-20 h-20 rounded-full bg-blue-600 flex items-center justify-center mb-6 mx-auto">
+                            <i class="fab fa-facebook-f text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Facebook</h3>
+                        <p class="text-gray-300 mb-6">Follow our Facebook page for daily challenges, live streams, and
+                            community highlights. Over 200K fans and growing!
+                        </p>
+                        <button class="bg-blue-600 hover:bg-blue-7 00 text-white font-bold py-3 px-6 rounded-full transition">
+                            Like Page
+                        </button>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="bg-gradient-to-br from-pink-600 to-purple-600 rounded-2xl p-8 text-center game-card transition duration-300">
+                        <div class="w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center mb-6 mx-auto">
+                            <i class="fab fa-instagram text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Instagram</h3>
+                        <p class="text-gray-300 mb-6">Check out our Instagram for beautiful game art, behind-the-scenes
+                            content, and player spotlights.
+                        </p>
+                        <button class="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-full transition">
+                            Follow Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="py-20 px-4">
+            <div class="container mx-auto">
+                <div class="max-w-4xl mx-auto bg-gradient-to-br from-purple-900 to-blue-900 rounded-3xl p-8 md:p-12 shadow-2xl border border-white border-opacity-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-8 md:mb-0">
+                            <h2 class="text-4xl font-bold mb-6">Ready to
+                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-yellow-300">
+                                    Play?
+                                </span>
+                            </h2>
+                            <p class="text-xl mb-8 text-gray-300">Download Chill Heaven Story now and start your puzzle
+                                adventure today!
+                            </p>
+
+                            <div class="flex flex-col space-y-4">
+                                <button class="bg-black bg-opacity-50 hover:bg-opacity-70 text-white font-bold py-4 px-6 rounded-xl border border-white border-opacity-20 flex items-center transition">
+                                    <i class="fab fa-apple text-3xl mr-4"></i>
+                                    <div class="text-left">
+                                        <div class="text-xs">Download on the</div>
+                                        <div class="text-xl">App Store</div>
+                                    </div>
+                                </button>
+
+                                <a href="https://play.google.com/apps/internaltest/4701569967536227903"
+                                   class="bg-black bg-opacity-50 hover:bg-opacity-70 text-white font-bold py-4 px-6 rounded-xl border border-white border-opacity-20 flex items-center transition">
+                                    <i class="fab fa-google-play text-3xl mr-4"></i>
+                                    <div class="text-left">
+                                        <div class="text-xs">Get it on</div>
+                                        <div class="text-xl">Google Play</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 relative">
+                            <div class="relative max-w-xs mx-auto">
+                                <div class="absolute -top-8 -left-8 w-24 h-24 rounded-full gem-red opacity-70 floating"
+                                     style="animation-delay: 0.3s;"></div>
+                                <div class="absolute -bottom-8 -right-8 w-20 h-20 rounded-full gem-blue opacity-70 floating"
+                                     style="animation-delay: 0.6s;"></div>
+                                <img src="https://via.placeholder.com/300x500/4F46E5/FFFFFF?text=Download+Now"
+                                     alt="Download Chill Heaven Story" class="relative rounded-2xl shadow-xl">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black bg-opacity-40 py-12 px-4">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                        <div class="w-10 h-10 rounded-full gem-purple flex items-center justify-center">
+                            <i class="fas fa-gem text-white"></i>
+                        </div>
+                        <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-yellow-300">
+                            Chill Heaven Story
+                        </span>
+                    </div>
+
+                    <div class="flex space-x-6 mb-6 md:mb-0">
+                        <a href="#" class="hover:text-pink-300 transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-pink-300 transition">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-pink-300 transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-pink-300 transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-pink-300 transition">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-400">
+                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition">Support</a>
+                        <a href="#" class="hover:text-white transition">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="border-t border-white border-opacity-10 mt-8 pt-8 text-center text-gray-500 text-sm">
+                    <p>© 2023 Chill Heaven Story. All rights reserved. Match3 puzzle game for mobile and tablet.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Floating Action Button -->
+        <div class="fixed bottom-6 right-6 z-50">
+            <a href="https://play.google.com/apps/internaltest/4701569967536227903"
+               class="w-14 h-14 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-xl flex items-center justify-center hover:from-pink-600 hover:to-purple-700 transition transform hover:scale-110">
+                <i class="fas fa-download text-xl"></i>
+            </a>
+        </div>
+
+        <script>
+            // Simple smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+            });
+            });
+            });
+
+            // Mobile menu toggle (would need more implementation)
+            const mobileMenuButton = document.querySelector('button.md\\:hidden');
+            mobileMenuButton.addEventListener('click', () => {
+            alert('Mobile menu would open here in a full implementation');
+            });
+
+            // Animate elements when they come into view
+            const observerOptions = {
+            threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeIn');
+            }
+            });
+            }, observerOptions);
+
+            document.querySelectorAll('.game-card').forEach(card => {
+            observer.observe(card);
+            });
+        </script>
+    </body>
+</html>
